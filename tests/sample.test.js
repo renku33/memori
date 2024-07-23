@@ -1,20 +1,11 @@
 import { loadFeature, defineFeature } from 'jest-cucumber'
 import * as steps from './steps/sample.steps'
 
-const feature = loadFeature('./tests/features/sample.feature')
+const feature = loadFeature('./tests/features/memori.feature')
 
 defineFeature(feature, (test) => {
-  test('Test the sample feature', ({ given, then, pending }) => {
-    given('the player opens the game', () => {
-      steps.openThePage()
-    })
-    then(/^I should see the "(.*)" text$/, (arg0) => {
-      expect(steps.getTitle()).toBe(arg0)
-    })
-  })
-
   test('Create the 4 x 3 board', ({ given, then }) => {
-    given('the player opens the game', () => {
+    given('a user opens the app', () => {
       steps.openThePage()
     })
     then(/^the board should have "(.*)" rows and "(.*)" columns$/, (numberOfRows, numberOfCols) => {
@@ -23,11 +14,143 @@ defineFeature(feature, (test) => {
   })
 
   test('Defaut memori cards display', ({ given, then }) => {
-    given('the player opens the game', () => {
+    given('a user opens the app', () => {
       steps.openThePage()
     })
-    then('all the memori cards should be unfliped', (pending) => {
+    then('all the memori cards should be unflipped', (pending) => {
       // expect(steps.allCardsUnflipped).toBe(true)
+      pending()
+    })
+  })
+
+  test('Defaut memori cards enabled', ({ given, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    then('all the memori cards should be enabled', (pending) => {
+      pending()
+    })
+  })
+
+  test('Click an unflipped memori card', ({ given, and, when, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    and(/^the memori card \((\d+),(\d+)\) is unflipped$/, (arg0, arg1) => {
+
+    })
+
+    when(/^the player click the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
+
+    })
+
+    then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (arg0, arg1, docString, pending) => {
+      pending()
+    })
+  })
+
+  test('Disable a flipped memori card', ({ given, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    then(/^the memori card \((\d+),(\d+)\) should be disabled$/, (arg0, arg1, pending) => {
+      pending()
+    })
+  })
+
+  test('The flipped pair is correct - stay flipped and disabled', ({ given, when, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    when(/^the player click the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
+
+    })
+
+    then(/^the memori cards \((\d+),(\d+)\) and \((\d+),(\d+)\) should stay flipped$/, (arg0, arg1, arg2, arg3, pending) => {
+      pending()
+    })
+  })
+
+  test('The flipped pair is incorrect - return to default memori card state', ({ given, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    then(/^the memori cards \((\d+),(\d+)\) and \((\d+),(\d+)\) should be unflipped$/, (arg0, arg1, arg2, arg3, pending) => {
+      pending()
+    })
+  })
+
+  test('Win the game - all the memori cards flipped', ({ given, and, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
+
+    })
+
+    then('all the memori cards should stay flipped', (pending) => {
+      pending()
+    })
+  })
+
+  test('Check the pairs - Incorrect', ({ given, and, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
+
+    })
+
+    then(/^the memori card display should show the following value: (.*)$/, (arg0, pending) => {
+      pending()
+    })
+  })
+
+  test('Check the pairs - Correct', ({ given, and, then }) => {
+    given('a user opens the app', () => {
+
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+
+    })
+
+    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
+
+    })
+
+    then(/^the memori card display should show the following value: (.*)$/, (arg0, pending) => {
       pending()
     })
   })
