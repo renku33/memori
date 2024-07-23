@@ -11,6 +11,11 @@ export function getTitle () {
   return title.innerHTML
 }
 
+export function boardDimensionValidation (rows, columns) {
+  const cards = screen.getAllByTestId('memoryCard', { exact: false })
+  return cards.length === rows * columns
+}
+
 export function allCardsUnflipped () {
   let result = true
   const cards = screen.getAllByTestId('memoryCard', { exact: false })
