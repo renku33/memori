@@ -13,17 +13,16 @@ defineFeature(feature, (test) => {
     })
   })
 
-  test('Defaut memori cards display', ({ given, then, pending }) => {
+  test('Defaut memori cards display', ({ given, then }) => {
     given('a user opens the app', () => {
       steps.openThePage()
     })
     then('all the memori cards should be unflipped', () => {
-      // expect(steps.allCardsUnflipped).toBe(true)
-      pending()
+      expect(steps.allCardsUnflipped).toBe(true)
     })
   })
 
-  test('Defaut memori cards enabled', ({ given, then, pending }) => {
+  test('Defaut memori cards enabled', ({ given, then }) => {
     given('a user opens the app', () => {
       steps.openThePage()
     })
