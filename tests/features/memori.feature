@@ -7,6 +7,9 @@ Feature: Memori
     Background:
         Given a user opens the app
 
+    Scenario: Create the 4 x 3 board
+        Then  the board should have "3" rows and "4" columns
+
     Scenario: Defaut memori cards display
         Then  all the memori cards should be unflipped
 
