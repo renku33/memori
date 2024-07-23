@@ -34,23 +34,23 @@ defineFeature(feature, (test) => {
 
   test('Click an unflipped memori card', ({ given, and, when, then, pending }) => {
     given('a user opens the app', () => {
-
+      steps.openThePage()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    and(/^the memori card \((\d+),(\d+)\) is unflipped$/, (arg0, arg1) => {
-
+    and(/^the memori card \((\d+),(\d+)\) is unflipped$/, (numberOfRows, numberOfCols) => {
+      steps.checkUnflippedCard(numberOfRows, numberOfCols)
     })
 
-    when(/^the player click the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
-
+    when(/^the player click the memori card \((\d+),(\d+)\)$/, (numberOfRows, numberOfCols) => {
+      steps.flipCard(numberOfRows, numberOfCols)
     })
 
-    then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (arg0, arg1, docString) => {
-      pending()
+    then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (numberOfRows, numberOfCols, docString) => {
+      steps.checkFlippedCard(numberOfRows, numberOfCols, docString)
     })
   })
 
