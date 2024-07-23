@@ -5,7 +5,7 @@ const feature = loadFeature('./tests/features/sample.feature')
 
 defineFeature(feature, (test) => {
   test('Test the sample feature', ({ given, then, pending }) => {
-    given('I am on the homepage', () => {
+    given('the player opens the game', () => {
       steps.openThePage()
     })
     then(/^I should see the "(.*)" text$/, (arg0) => {
@@ -14,7 +14,7 @@ defineFeature(feature, (test) => {
   })
 
   test('Defaut memori cards display', ({ given, then }) => {
-    given('I am on the homepage', () => {
+    given('the player opens the game', () => {
       steps.openThePage()
     })
     then('all the memori cards should be unfliped', () => {
