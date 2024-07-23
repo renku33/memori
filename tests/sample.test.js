@@ -12,4 +12,13 @@ defineFeature(feature, (test) => {
       expect(steps.getTitle()).toBe(arg0)
     })
   })
+
+  test('Defaut memori cards display', ({ given, then }) => {
+    given('I am on the homepage', () => {
+      steps.openThePage()
+    })
+    then('all the memori cards should be unfliped', () => {
+      expect(steps.allCardsUnflipped).toBe(true)
+    })
+  })
 })
