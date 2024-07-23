@@ -29,7 +29,7 @@ defineFeature(feature, (test) => {
     })
 
     then('all the memori cards should be enabled', () => {
-      expect(steps.boardCardsEnabledValidation).toBe(true)
+      expect(steps.boardCardsEnabledValidation()).toBe(true)
     })
   })
 

@@ -29,9 +29,9 @@ export function allCardsUnflipped () {
 
 export function boardCardsEnabledValidation () {
   let result = true
-  const cards = screen.getAllByTestId('memoryCards', { exact: false })
+  const cards = screen.getAllByTestId('memoryCard', { exact: false })
   cards.forEach((cards) => {
-    if (cards.disabled === false) {
+    if (cards.disabled === true) {
       result = false
     }
   })
