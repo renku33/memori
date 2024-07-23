@@ -18,7 +18,7 @@ defineFeature(feature, (test) => {
       steps.openThePage()
     })
     then('all the memori cards should be unflipped', () => {
-      expect(steps.allCardsUnflipped).toBe(true)
+      expect(steps.allCardsUnflipped()).toBe(true)
     })
   })
 
