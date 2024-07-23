@@ -13,7 +13,7 @@ export default function Game () {
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
     }
-  }, [handleKeyPress]) // TO-DO: Find an explanation for this
+  }, [handleKeyPress])
 
   function setMockDataForm (data) {
     setMockData(data)
