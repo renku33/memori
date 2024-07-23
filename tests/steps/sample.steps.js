@@ -10,3 +10,14 @@ export function getTitle () {
   const title = screen.getByTestId('app-title')
   return title.innerHTML
 }
+
+export function allCardsUnflipped () {
+  let result = true
+  const cards = screen.getAllByTestId('memoryCard', { exact: false })
+  cards.forEach(card => {
+    if (!card.classList.contains('unflipped')) {
+      result = false
+    }
+  })
+  return result
+}
