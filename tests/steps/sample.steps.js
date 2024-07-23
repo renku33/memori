@@ -26,3 +26,14 @@ export function allCardsUnflipped () {
   })
   return result
 }
+
+export function boardCardsEnabledValidation () {
+  let result = true
+  const cards = screen.getAllByTestId('memoryCards', { exact: false })
+  cards.forEach((cards) => {
+    if (cards.disabled === false) {
+      result = false
+    }
+  })
+  return result
+}
