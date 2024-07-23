@@ -25,11 +25,11 @@ defineFeature(feature, (test) => {
 
   test('Defaut memori cards enabled', ({ given, then, pending }) => {
     given('a user opens the app', () => {
-
+      steps.openThePage()
     })
 
     then('all the memori cards should be enabled', () => {
-      pending()
+      expect(steps.boardCardsEnabledValidation).toBe(true)
     })
   })
 
