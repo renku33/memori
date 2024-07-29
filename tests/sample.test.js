@@ -41,16 +41,16 @@ defineFeature(feature, (test) => {
       steps.setMockData(docString)
     })
 
-    and(/^the memori card \((\d+),(\d+)\) is unflipped$/, (numberOfRows, numberOfCols) => {
-      expect(steps.isCardUnfliped(numberOfRows, numberOfCols)).toBe(true)
+    and(/^the memori card \((\d+),(\d+)\) is unflipped$/, (rowPosition, colPosition) => {
+      expect(steps.isCardUnfliped(rowPosition, colPosition)).toBe(true)
     })
 
-    when(/^the player click the memori card \((\d+),(\d+)\)$/, (numberOfRows, numberOfCols) => {
-      steps.flipCard(numberOfRows,numberOfCols)
+    when(/^the player click the memori card \((\d+),(\d+)\)$/, (rowPosition, colPosition) => {
+      steps.flipCard(rowPosition,colPosition)
     })
 
-    then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (numberOfRows, numberOfCols, docString) => {
-      expect(steps.isCardUnfliped(numberOfRows, numberOfCols)).toBe(true)
+    then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (rowPosition, colPosition, docString) => {
+      expect(steps.isCardFliped(rowPosition, colPosition)).toBe(true)
     })
   })
 

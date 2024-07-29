@@ -61,3 +61,28 @@ export function setMockData (data) {
   fireEvent.click(submitButton)
 }
 
+export function isCardUnfliped(rowPosition, colPosition){
+  let result = true
+  const card = screen.getByTestId('memoryCard-' + rowPosition + '-' + colPosition, { exact: true })
+  
+  if (!card.classList.contains('unflipped')) {
+    result = false
+  }
+  
+  return result
+}
+
+export function flipCard (rowPosition, colPosition){
+  fireEvent.click(screen.getByTestId('memoryCard-' + rowPosition + '-' + colPosition, { exact: true }))
+}
+
+export function isCardFliped(rowPosition, colPosition){
+  let result = true
+  const card = screen.getByTestId('memoryCard-' + rowPosition + '-' + colPosition, { exact: true })
+  
+  if (!card.classList.contains('flipped')) {
+    result = false
+  }
+  
+  return result
+}
