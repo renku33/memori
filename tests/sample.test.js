@@ -46,7 +46,7 @@ defineFeature(feature, (test) => {
     })
 
     when(/^the player click the memori card \((\d+),(\d+)\)$/, (rowPosition, colPosition) => {
-      steps.flipCard(rowPosition,colPosition)
+      steps.flipCard(rowPosition, colPosition)
     })
 
     then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (rowPosition, colPosition, docString) => {
@@ -77,8 +77,8 @@ defineFeature(feature, (test) => {
       steps.setMockData(docString)
     })
 
-    when(/^the player click the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
-      steps.flipCard(rowPosition,colPosition)
+    when(/^the player click the memori card \((\d+),(\d+)\)$/, (rowPosition, colPosition) => {
+      steps.flipCard(rowPosition, colPosition)
     })
 
     then(/^the memori cards \((\d+),(\d+)\) and \((\d+),(\d+)\) should stay flipped$/, (arg0, arg1, arg2, arg3) => {
@@ -97,24 +97,6 @@ defineFeature(feature, (test) => {
 
     then(/^the memori cards \((\d+),(\d+)\) and \((\d+),(\d+)\) should be unflipped$/, (arg0, arg1, arg2, arg3) => {
       pending()
-    })
-  })
-
-  test('Win the game - all the memori cards flipped', ({ given, and, then}) => {
-    given('a user opens the app', () => {
-      steps.openThePage()
-    })
-
-    given('the player loads the following mock data:', (docString) => {
-      steps.setMockData(docString)
-    })
-
-    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (rowPosition, colPosition) => {
-      steps.flipCard(rowPosition,colPosition)
-    })
-
-    then('all the memori cards should stay flipped', () => {
-      expect(steps.winGameCheck()).toBe(true)
     })
   })
 
@@ -151,6 +133,21 @@ defineFeature(feature, (test) => {
 
     then(/^the memori card display should show the following value: (.*)$/, (arg0) => {
       pending()
+    })
+  })
+
+  test('Win the game - all the memori cards flipped', ({ given, and, then }) => {
+    given('a user opens the app', () => {
+      steps.openThePage()
+    })
+    given('the player loads the following mock data:', (docString) => {
+      steps.setMockData(docString)
+    })
+    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (rowPosition, colPosition) => {
+      steps.flipCard(rowPosition, colPosition)
+    })
+    then('all the memori cards should stay flipped', () => {
+      expect(steps.winGameCheck()).toBe(true)
     })
   })
 })

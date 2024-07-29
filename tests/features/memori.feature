@@ -82,7 +82,7 @@ Feature: Memori
             | 1 |
             """
         And the user clicks the memori card (1,1)
-        Then  all the memori cards should stay flipped
+        Then all the memori cards should stay flipped
     
 
     

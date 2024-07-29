@@ -35,7 +35,6 @@ export default function Board ({ numberOfRows = 3, numberOfColumns = 4, mockData
 
   function validateMockData (mockData) {
     let isValidData
-    console.log(mockData)
     if (mockData === undefined) {
       isValidData = false
     } else {
@@ -96,17 +95,22 @@ export default function Board ({ numberOfRows = 3, numberOfColumns = 4, mockData
     setMinefieldData(preData)
   }, [mockData])
 
+  function initThePairs () {
+
+  }
+
   return (
 
     <div data-testid='field'>
       {boardData.map((row, rowIndex) => (
         <div data-testid='memoryCardBoard' key={rowIndex}>
           {row.map((card, cardIndex) => (
-            
+
             <Card
               key={cardIndex}
               rowPosition={rowIndex + 1}
               colPosition={cardIndex + 1}
+              value={initThePairs()}
             />
           ))}
         </div>
