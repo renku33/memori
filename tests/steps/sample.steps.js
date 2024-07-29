@@ -12,13 +12,13 @@ export function getTitle () {
 }
 
 export function boardDimensionValidation (rows, columns) {
-  const cards = screen.getAllByTestId('memoryCard', { exact: true })
+  const cards = screen.getAllByTestId('memoryCard-', { exact: false })
   return cards.length === rows * columns
 }
 
 export function allCardsUnflipped () {
   let result = true
-  const cards = screen.getAllByTestId('memoryCard', { exact: true })
+  const cards = screen.getAllByTestId('memoryCard-', { exact: false })
   cards.forEach(card => {
     if (!card.classList.contains('unflipped')) {
       result = false
@@ -29,7 +29,7 @@ export function allCardsUnflipped () {
 
 export function boardCardsEnabledValidation () {
   let result = true
-  const cards = screen.getAllByTestId('memoryCard', { exact: false })
+  const cards = screen.getAllByTestId('memoryCard-', { exact: false })
   cards.forEach((cards) => {
     if (cards.disabled === true) {
       result = false

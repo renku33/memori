@@ -102,9 +102,11 @@ export default function Board ({ numberOfRows = 3, numberOfColumns = 4, mockData
       {boardData.map((row, rowIndex) => (
         <div data-testid='memoryCardBoard' key={rowIndex}>
           {row.map((card, cardIndex) => (
+            
             <Card
               key={cardIndex}
-              
+              rowPosition={rowIndex + 1}
+              colPosition={cardIndex + 1}
             />
           ))}
         </div>
