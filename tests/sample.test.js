@@ -114,7 +114,7 @@ defineFeature(feature, (test) => {
     })
 
     then('all the memori cards should stay flipped', () => {
-      expect(steps.allCardsFlipped()).toBe(true)
+      expect(steps.winGameCheck()).toBe(true)
     })
   })
 

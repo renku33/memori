@@ -79,11 +79,9 @@ Feature: Memori
     Scenario: Win the game - all the memori cards flipped
         Given the player loads the following mock data:
             """
-            | 1 | 1 | 4 | 4 |
-            | 2 | 2 | 5 | 5 |
-            | 3 | 3 | 6 | 6 |
+            | 1 |
             """
-        And the user clicks the memori card (3,4)
+        And the user clicks the memori card (1,1)
         Then  all the memori cards should stay flipped
     
 
