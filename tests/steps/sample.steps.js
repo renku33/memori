@@ -12,13 +12,13 @@ export function getTitle () {
 }
 
 export function boardDimensionValidation (rows, columns) {
-  const cards = screen.getAllByTestId('memoryCard', { exact: false })
+  const cards = screen.getAllByTestId('memoryCard', { exact: true })
   return cards.length === rows * columns
 }
 
 export function allCardsUnflipped () {
   let result = true
-  const cards = screen.getAllByTestId('memoryCard', { exact: false })
+  const cards = screen.getAllByTestId('memoryCard', { exact: true })
   cards.forEach(card => {
     if (!card.classList.contains('unflipped')) {
       result = false
@@ -37,3 +37,27 @@ export function boardCardsEnabledValidation () {
   })
   return result
 }
+
+export function setMockData (data) {
+  data = data.trim()
+
+  // userEvent.keyboard('ctrl+m') TO DO try to explain why userEvent doesn't work
+  fireEvent.keyDown(screen.getByTestId('field'), {
+    key: 'm',
+    keyCode: 77,
+    which: 77,
+    code: 'KeyM',
+    location: 0,
+    altKey: false,
+    ctrlKey: true,
+    metaKey: false,
+    shiftKey: false,
+    repeat: false
+  })
+
+  const textInput = screen.getByTestId('mock-data-input')
+  const submitButton = screen.getByTestId('mock-data-submit')
+  fireEvent.change(textInput, { target: { value: data } })
+  fireEvent.click(submitButton)
+}
+

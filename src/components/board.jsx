@@ -35,6 +35,7 @@ export default function Board ({ numberOfRows = 3, numberOfColumns = 4, mockData
 
   function validateMockData (mockData) {
     let isValidData
+    console.log(mockData)
     if (mockData === undefined) {
       isValidData = false
     } else {
@@ -103,6 +104,7 @@ export default function Board ({ numberOfRows = 3, numberOfColumns = 4, mockData
           {row.map((card, cardIndex) => (
             <Card
               key={cardIndex}
+              
             />
           ))}
         </div>

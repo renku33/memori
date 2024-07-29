@@ -42,15 +42,15 @@ defineFeature(feature, (test) => {
     })
 
     and(/^the memori card \((\d+),(\d+)\) is unflipped$/, (numberOfRows, numberOfCols) => {
-      steps.checkUnflippedCard(numberOfRows, numberOfCols)
+      expect(steps.isCardUnfliped(numberOfRows, numberOfCols)).toBe(true)
     })
 
     when(/^the player click the memori card \((\d+),(\d+)\)$/, (numberOfRows, numberOfCols) => {
-      steps.flipCard(numberOfRows, numberOfCols)
+      steps.flipCard(numberOfRows,numberOfCols)
     })
 
     then(/^the memori card \((\d+),(\d+)\) should be flipped:$/, (numberOfRows, numberOfCols, docString) => {
-      steps.checkFlippedCard(numberOfRows, numberOfCols, docString)
+      expect(steps.isCardUnfliped(numberOfRows, numberOfCols)).toBe(true)
     })
   })
 
