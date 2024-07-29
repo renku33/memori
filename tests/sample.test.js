@@ -56,29 +56,29 @@ defineFeature(feature, (test) => {
 
   test('Disable a flipped memori card', ({ given, then, pending }) => {
     given('a user opens the app', () => {
-
+      steps.openThePage()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    then(/^the memori card \((\d+),(\d+)\) should be disabled$/, (arg0, arg1) => {
-      pending()
+    then(/^the memori card \((\d+),(\d+)\) should be disabled$/, (rowPosition, colPosition) => {
+      expect(steps.isCardDisabled(rowPosition, colPosition)).toBe(true)
     })
   })
 
   test('The flipped pair is correct - stay flipped and disabled', ({ given, when, then, pending }) => {
     given('a user opens the app', () => {
-
+      steps.openThePage()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
     when(/^the player click the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
-
+      steps.flipCard(rowPosition,colPosition)
     })
 
     then(/^the memori cards \((\d+),(\d+)\) and \((\d+),(\d+)\) should stay flipped$/, (arg0, arg1, arg2, arg3) => {
@@ -100,21 +100,21 @@ defineFeature(feature, (test) => {
     })
   })
 
-  test('Win the game - all the memori cards flipped', ({ given, and, then, pending }) => {
+  test('Win the game - all the memori cards flipped', ({ given, and, then}) => {
     given('a user opens the app', () => {
-
+      steps.openThePage()
     })
 
     given('the player loads the following mock data:', (docString) => {
-
+      steps.setMockData(docString)
     })
 
-    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (arg0, arg1) => {
-
+    and(/^the user clicks the memori card \((\d+),(\d+)\)$/, (rowPosition, colPosition) => {
+      steps.flipCard(rowPosition,colPosition)
     })
 
     then('all the memori cards should stay flipped', () => {
-      pending()
+      expect(steps.allCardsFlipped()).toBe(true)
     })
   })
 

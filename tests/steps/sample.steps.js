@@ -86,3 +86,25 @@ export function isCardFliped(rowPosition, colPosition){
   
   return result
 }
+
+export function isCardDisabled (rowPosition, colPosition) {
+  let result = true
+  const card = screen.getByTestId('memoryCard-' + rowPosition + '-' + colPosition, { exact: true })
+  
+  if (card.disabled === true) {
+    result = false
+  }
+  
+  return result
+}
+
+export function allCardsFlipped () {
+  let result = true
+  const cards = screen.getAllByTestId('memoryCard-', { exact: false })
+  cards.forEach(card => {
+    if (!card.classList.contains('flipped')) {
+      result = false
+    }
+  })
+  return result
+}
